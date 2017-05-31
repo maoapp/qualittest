@@ -1,0 +1,31 @@
+
+[{"iban": "DE40900900424711951501",
+    "bic": "DEMODE01",
+    "account_number": "4711951500",
+    "bank_code": "90090042",
+    "bank_name": "Demobank",
+    "balance": {
+        "balance": 3250.31,
+        "balance_date": "2017-02-20T00:00:00.000Z",
+        "monthly_spending_limit": 0,
+        "credit_line": 0
+    },
+    "currency": "EUR",
+    "type": "Giro account",
+    "icon": "https://api.figo.me/assets/images/accounts/default.png"},
+    {"iban": "DE40900900424711951501",
+    "bic": "DEMODE01",
+    "account_number": "4711951500",
+    "bank_code": "90090042",
+    "bank_name": "Demobank",
+    "balance": {
+        "balance": 3250.31,
+        "balance_date": "2017-02-20T00:00:00.000Z",
+        "monthly_spending_limit": 0,
+        "credit_line": 0
+    },
+    "currency": "EUR",
+    "type": "Giro account",
+    "icon": "https://api.figo.me/assets/images/accounts/default.png"}
+
+]

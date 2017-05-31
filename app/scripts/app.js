@@ -9,13 +9,11 @@
  * Main module of the application.
  */
 angular
-  .module('qualittestApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
+  .module('qualittestApp', [    
     'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+    'ui.bootstrap',
+    'ui.grid',
+    'ui.grid.selection'    
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -23,6 +21,14 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
+      })
+      .when('/accounts', {
+        templateUrl: 'views/accounts.html',
+        controller: 'accountController'
+      })
+      .when('/transactions', {
+        templateUrl: 'views/transactions.html',
+        controller: 'transactionController'
       })
       .otherwise({
         redirectTo: '/'

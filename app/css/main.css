@@ -1,1 +1,1 @@
-body{padding:50px 15px 20px 15px}.home-body{background-image:url(../images/charts.jpeg);margin:0px}
+@import url("https://fonts.googleapis.com/css?family=Roboto");body{font-family:"Roboto",sans-serif !important}.home-body{background-image:url(../images/charts.jpeg);margin:0px}.name-app{color:#fff;text-align:center}.login .title{text-align:center;font-size:24px}.login .panel-body form{padding:15px 10px}.login .panel-body form .button{margin-top:20px}.view-title{margin-top:120px;color:#fff}.table-data{background:#fff;padding:10px;border-radius:10px}.icon-account{width:20%}

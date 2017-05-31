@@ -5,9 +5,11 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "angular-ui-grid": "^4.0.4",
     "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-inject": "^4.2.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "node-sass": "^4.5.3"
