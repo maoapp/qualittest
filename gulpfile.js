@@ -2,10 +2,22 @@ var gulp=require('gulp'),
     sass=require('gulp-sass'),
     autoprefixer=require('gulp-autoprefixer'),
     browserSync=require('browser-sync').create(),
-    uglify=require('gulp-uglify'),
-    inject=require('gulp-inject'),
-    wiredep=require('wiredep');
+    concat=require('gulp-concat'),
+    uglify=require('gulp-uglify');
+ 
+var scriptsPaths=[
+        'app/vendor/jquery/dist/jquery.min.js',
+        'app/vendor/bootstrap-css/js/bootstrap.js',
+        'app/vendor/angular/angular.js',
+        'app/vendor/angular-route/angular-route.min.js'        
+    ];
 
+var cssPaths=[
+    "app/vendor/bootstrap-css/css/bootstrap.css",
+    "app/vendor/components-font-awesome/css/font-awesome.css",
+    "app/vendor/angular-bootstrap/ui-bootstrap-csp.css"
+];
+    
 
 gulp.task('server',['sass'],function(){
     browserSync.init({
@@ -13,6 +25,7 @@ gulp.task('server',['sass'],function(){
     });
 
     gulp.watch("app/scss/*scss",['sass']);
+    gulp.watch('app/scripts/**/*js',['mix']);
     gulp.watch("app/*html").on('change',browserSync.reload);
 });
 
@@ -30,34 +43,26 @@ gulp.task('sass',function(){
     .pipe(browserSync.stream());
 });
 
-//inject js and css
-// gulp.task('inject',function(){
-//     var sources=gulp.src(['./app/scripts/**/*.js','./app/css/**/*.css']);
-//     return gulp.src('index.html',{
-//         cwd:'./app'
-//     })
-//     .pipe(inject(sources,{
-//         read:false,
-//         ignorePath:'./app'
-//     }))
-//     .pipe(gulp.dest('./app'));
-// })
+gulp.task('mixjs',function(){
+    gulp.src('app/scripts/**/*js')
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('app/dist'))    
+});
 
-// gulp.task('wiredep',function(){
-//     gulp.src('./app/index.html')
-//     .pipe(wiredep({
-//         directory:'./app/vendor',
-//         onError:function(err){
-//             console.log(err.code);
-//         }
+gulp.task('mixcss',function(){
+    gulp.src(cssPaths)
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('app/dist'))
+});
 
-//     }))
-// })
+gulp.task('pluginsjs',function(){
+    gulp.src(scriptsPaths)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('app/dist'))
+})
 
 //watcher
 gulp.task('watch',function(){
     gulp.watch('app/scss/*.scss',['sass']);
-    gulp.watch(['./app/scripts/**/*.js'],['inject']);
-    gulp.watch(['./app/css/**/*.css'],['inject']);
-    gulp.watch(['./bower.json'],['wiredep']);
+    gulp.watch('app/scripts/**/*js',['mixjs']);
 });

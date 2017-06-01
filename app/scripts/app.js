@@ -1,14 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name qualittestApp
- * @description
- * # qualittestApp
- *
- * Main module of the application.
- */
-angular
+var app=angular
   .module('qualittestApp', [    
     'ngRoute',
     'ui.bootstrap',
@@ -18,8 +10,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        templateUrl: 'views/login.html',
+        controller: 'loginController',
         controllerAs: 'main'
       })
       .when('/accounts', {
