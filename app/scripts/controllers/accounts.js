@@ -3,12 +3,18 @@
 
     accountController.$inject=[
         '$scope',
-        'serviceData'
+        'serviceData',
+        'uiGridConstants'
     ];
-    function accountController($scope,serviceData){
-        serviceData.getAccounts().then(function(response){    
-            console.log(response.data);
-            $scope.accounts=response.data;  
+    function accountController(
+        $scope,
+        serviceData,
+        uiGridConstants
+        ){
+        serviceData.getAccounts().then(function(response){   
+            var data= response.data.accounts;
+            $scope.accounts=data;  
+            $scope.gridOptions.data =data.accounts;
         }).catch(function(e){
             console.log(e);
         });
@@ -19,20 +25,21 @@
             showGridFooter: true,
             enableSelectAll: true,
             enableFullRowSelection: true,
-            selectionRowHeaderWidth: 35    
+            selectionRowHeaderWidth: 35,
+                
         };
 
         $scope.gridOptions.columnDefs = [{
-            name: 'AccountId'
+            name: 'AccountId',displayName: 'AccountId'
         }, {
-            name: 'Name'
+            name: 'Name',displayName: 'Name'
         }, {
-            name: 'Currency'        
+            name: 'Currency' ,displayName: 'Currency'       
         }, {
-            name: 'Balance'
+            name: 'Balance',displayName: 'Balance'
         },
         {
-            name: 'Icon'
+            name: 'Icon',displayName: 'Icon'
         }
         ];
     }
