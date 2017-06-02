@@ -17,11 +17,7 @@ var app=angular
       .when('/accounts', {
         templateUrl: 'views/accounts.html',
         controller: 'accountController'
-      })
-      .when('/transactions', {
-        templateUrl: 'views/transactions.html',
-        controller: 'transactionController'
-      })
+      })      
       .otherwise({
         redirectTo: '/'
       });

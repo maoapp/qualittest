@@ -1,8 +1,14 @@
 (function(){
   'use strict';
-  transactionController.$inject=['$scope','serviceData'];
-  function transactionController($scope,serviceData){
-    
+  transactionController.$inject=[
+    '$scope',
+    'serviceData'
+    ];
+  function transactionController(
+    $scope,
+    serviceData
+    ){   
+      
     serviceData.getTransactions().then(function(response){
       console.log(response.data);
     })

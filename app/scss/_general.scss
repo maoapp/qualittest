@@ -27,17 +27,33 @@
 
 
 .view-title{
-    margin-top:120px;
-    color:$white;
+    margin-top:80px;
+    color:$gray;
 }
 
 .table-data{
     background:$white;
-    padding:10px;
-    border-radius:10px;
+    padding:3px; 
 }
 
 .icon-account{
     width:20%;
    
+}
+
+.tr-accounts{
+    td{
+        cursor:pointer;
+    }
+    &:hover{
+        opacity:0.8;
+    }
+}
+
+i{
+    cursor:pointer;
+}
+
+.transactions-table{
+    background:#eeeeee;
 }
