@@ -99,9 +99,10 @@ var app=angular
 
   function loginController($scope,authService){
 
-
-    $scope.logIn=function(){
-       authService.getAuth().then(function(response){
+  
+    $scope.logIn=function(user,pass){
+       $scope.data={username:user,password:pass}
+       authService.getAuth($scope.data).then(function(response){
         console.log(response.data);
        });
     };     
@@ -152,11 +153,10 @@ var app=angular
 
     function authService($http){
            var api="https://api.figo.me/auth/token"; 
-           var token="ASHWLIkouP2O6_bgA2wWReRhletgWKHYjLqDaqb0LFfamim9RjexTo22ujRIP_cjLiRiSyQXyt2kM1eXU2XLFZQ0Hro15HikJQT_eNeT_9XQ";
-           var data={username:"demo@figo.me",password:"demo1234"};
+           var token="ASHWLIkouP2O6_bgA2wWReRhletgWKHYjLqDaqb0LFfamim9RjexTo22ujRIP_cjLiRiSyQXyt2kM1eXU2XLFZQ0Hro15HikJQT_eNeT_9XQ";          
            var headers={scope: "accounts=ro balance=ro offline",token_type: "Bearer",access_token:token,expires_in: 3600 };
 
-           function getAuth(){
+           function getAuth(data){
                return $http.post(api,
                 {
                     data:data,  
